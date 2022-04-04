@@ -1,4 +1,5 @@
-$resourceGroup = (Get-AzResourceGroup)[0];
+#!/bin/bash
+resourceGroup=`az group list --query '[0].name' --output tsv`
 
 az vm create -g $resourceGroup -n LabVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
 
